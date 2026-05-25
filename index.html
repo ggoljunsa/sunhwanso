@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F6F1EA">
+  <title>순환소 · Sunhwanso</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="app">
+    <a class="float-info" href="about.html" title="이 데모는 무엇?">i</a>
+
+    <div class="statusbar">
+      <span>9:41</span>
+      <span class="statusbar__right"><span>●●●</span><span>100</span></span>
+    </div>
+
+    <header class="header">
+      <div class="header__loc" data-stock="재고 24">📍 DGIST 학정동 · 순환소</div>
+      <h1 class="header__title">오늘 빌릴 수 있는<br><span class="accent">이야기들.</span></h1>
+    </header>
+
+    <div class="chips">
+      <button class="chip is-active" data-cat="전체">전체</button>
+      <button class="chip" data-cat="생활">생활</button>
+      <button class="chip" data-cat="학업·연구">학업·연구</button>
+      <button class="chip" data-cat="취업·발표">취업·발표</button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <div style="height: 16px"></div>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html" class="is-active"><span class="nav__icon">⌂</span>홈</a>
+    <a href="loop.html"><span class="nav__icon">↻</span>빌리고</a>
+    <a href="story.html"><span class="nav__icon">◯</span>스토리</a>
+    <a href="temp.html"><span class="nav__icon">◐</span>내 온도</a>
+  </nav>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+  <script>
+    Sunhwanso.renderGrid('grid', '전체');
+    Sunhwanso.bindChips('.chip', 'grid');
+  </script>
+</body>
+</html>

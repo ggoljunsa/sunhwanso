@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F6F1EA">
+  <title>대여 진행 · 순환소</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="app">
+    <a class="float-info" href="about.html">i</a>
+
+    <div class="statusbar">
+      <span>9:41</span>
+      <span class="statusbar__right"><span>●●●</span><span>100</span></span>
+    </div>
+
+    <a class="back" href="index.html">대여 진행 <span id="stepLabel" style="margin-left:auto;color:var(--terra);font-weight:600">STEP 2/5</span></a>
+
+    <div class="loop-steps" id="loopSteps">
+      <div class="loop-step is-done" data-step="1">
+        <div class="loop-step__dot">✓</div>
+        <div class="loop-step__label">신청</div>
+      </div>
+      <div class="loop-step is-active" data-step="2">
+        <div class="loop-step__dot">2</div>
+        <div class="loop-step__label">픽업<br>NFC</div>
+      </div>
+      <div class="loop-step" data-step="3">
+        <div class="loop-step__dot">3</div>
+        <div class="loop-step__label">사용</div>
+      </div>
+      <div class="loop-step" data-step="4">
+        <div class="loop-step__dot">4</div>
+        <div class="loop-step__label">반납<br>NFC</div>
+      </div>
+      <div class="loop-step" data-step="5">
+        <div class="loop-step__dot">5</div>
+        <div class="loop-step__label">리워드</div>
+      </div>
+    </div>
+
+    <div id="actionArea"></div>
+
+    <div style="height: 16px"></div>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html"><span class="nav__icon">⌂</span>홈</a>
+    <a href="loop.html" class="is-active"><span class="nav__icon">↻</span>빌리고</a>
+    <a href="story.html"><span class="nav__icon">◯</span>스토리</a>
+    <a href="temp.html"><span class="nav__icon">◐</span>내 온도</a>
+  </nav>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+  <script>
+    // Item to demo (default = 정장 #00032). Override via ?id=
+    const itemId = Sunhwanso.qs('id') || '00032';
+    const item = Sunhwanso.getItem(itemId) || Sunhwanso.getItem('00032');
+
+    // Optional ?step= to jump to a specific stage (1~5)
+    let currentStep = parseInt(Sunhwanso.qs('step'), 10);
+    if (!currentStep || currentStep < 1 || currentStep > 5) currentStep = 2;
+
+    function renderAction() {
+      const area = document.getElementById('actionArea');
+      const stepLabel = document.getElementById('stepLabel');
+      stepLabel.textContent = 'STEP ' + currentStep + '/5';
+
+      // Update steps visual
+      document.querySelectorAll('.loop-step').forEach((el) => {
+        const n = parseInt(el.dataset.step, 10);
+        el.classList.remove('is-done', 'is-active');
+        if (n < currentStep) el.classList.add('is-done');
+        else if (n === currentStep) el.classList.add('is-active');
+      });
+
+      let html = '';
+
+      if (currentStep === 1) {
+        html = `
+          <div class="loop-action">
+            <div class="loop-action__step">STEP 01 · 신청</div>
+            <div class="loop-action__title">대여할 옷을<br>고르고 일정을 정하세요.</div>
+            <div class="loop-action__item">
+              <div class="loop-action__item-info">
+                ${item.name} · ${item.size}
+                <small>2026.05.18 ~ 05.22 · ${item.locker}</small>
+              </div>
+              <div class="loop-action__item-emoji">${item.emoji}</div>
+            </div>
+          </div>
+          <button class="cta" onclick="next()">신청하기</button>
+        `;
+      } else if (currentStep === 2) {
+        html = `
+          <div class="loop-action">
+            <div class="loop-action__step">STEP 02 · 픽업 · NOW</div>
+            <div class="loop-action__title">순환소에서<br>NFC에 가져다 대세요.</div>
+            <div class="loop-action__item">
+              <div class="loop-action__item-info">
+                오늘 픽업할 옷<br>
+                ${item.name} · ${item.size} · ${item.color}
+                <small>TAG #${item.id} · 락커 ${item.locker}</small>
+              </div>
+              <div class="loop-action__item-emoji">${item.emoji}</div>
+            </div>
+          </div>
+          <div class="nfc-btn-wrap">
+            <button class="nfc-btn" onclick="onNfc()">NFC</button>
+          </div>
+          <div class="nfc-hint">인식 대기 중…</div>
+        `;
+      } else if (currentStep === 3) {
+        html = `
+          <div class="loop-action">
+            <div class="loop-action__step">STEP 03 · 사용 중</div>
+            <div class="loop-action__title">디펜스/면접/일정<br>잘 다녀오세요.</div>
+            <div class="loop-action__item">
+              <div class="loop-action__item-info">
+                반납 예정일<br>
+                <small>~ 2026.05.22 · 24:00 까지</small>
+              </div>
+              <div class="loop-action__item-emoji">${item.emoji}</div>
+            </div>
+          </div>
+          <button class="cta" onclick="next()">사용 완료 → 반납하러 가기</button>
+        `;
+      } else if (currentStep === 4) {
+        html = `
+          <div class="loop-action">
+            <div class="loop-action__step">STEP 04 · 반납</div>
+            <div class="loop-action__title">반납 박스 NFC에<br>다시 대주세요.</div>
+            <div class="loop-action__item">
+              <div class="loop-action__item-info">
+                자가 상태 체크<br>
+                <small>□ 얼룩 없음 &nbsp; □ 단추 이상無 &nbsp; □ 수선 필요</small>
+              </div>
+              <div class="loop-action__item-emoji">${item.emoji}</div>
+            </div>
+          </div>
+          <div class="nfc-btn-wrap">
+            <button class="nfc-btn" onclick="onNfc()">NFC</button>
+          </div>
+          <div class="nfc-hint">반납 인식 대기 중…</div>
+        `;
+      } else if (currentStep === 5) {
+        const nextNum = item.nextNum;
+        html = `
+          <div class="loop-action">
+            <div class="loop-action__step">STEP 05 · 리워드 적립</div>
+            <div class="loop-action__title">+10P 적립<br>디지온도 36.5 → 37.2°</div>
+            <div class="loop-action__item">
+              <div class="loop-action__item-info">
+                ${nextNum}번째 사용자의 이야기로 기록됐어요.
+                <small>스토리에 메시지를 남겨보세요.</small>
+              </div>
+              <div class="loop-action__item-emoji">🏆</div>
+            </div>
+          </div>
+          <a class="cta" href="story.html?id=${item.id}" style="text-align:center;text-decoration:none;display:block">스토리에 메시지 남기기</a>
+          <a class="cta cta--ghost" href="index.html" style="text-align:center;text-decoration:none;display:block">홈으로</a>
+        `;
+      }
+
+      area.innerHTML = html;
+    }
+
+    window.next = function () {
+      if (currentStep < 5) currentStep++;
+      renderAction();
+    };
+
+    window.onNfc = function () {
+      Sunhwanso.showToast('NFC 인식 완료 · ' + (currentStep === 2 ? '+10P (픽업)' : '+30P (반납)'));
+      setTimeout(() => {
+        if (currentStep < 5) currentStep++;
+        renderAction();
+      }, 900);
+    };
+
+    renderAction();
+  </script>
+</body>
+</html>

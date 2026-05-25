@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F6F1EA">
+  <title>이 데모는 무엇? · 순환소</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="app">
+    <div class="statusbar">
+      <span>9:41</span>
+      <span class="statusbar__right"><span>●●●</span><span>100</span></span>
+    </div>
+
+    <a class="back" href="index.html">홈으로</a>
+
+    <header class="header">
+      <div class="header__loc">ABOUT · SUNHWANSO</div>
+      <h1 class="header__title">한 벌의 옷이<br><span class="accent">32번의 디펜스</span>를<br>함께한다.</h1>
+    </header>
+
+    <div class="about">
+      <p>이 페이지는 DGIST UI/UX 디자인 강의 2026-1학기 후반기 팀프로젝트 <b>6조</b>의 미드파이 프로토타입입니다.</p>
+      <p>옷에 달린 <b>NFC 태그</b>에 폰을 대면 그 옷의 이전 사용자들·메시지·수선 기록이 펼쳐집니다. "이 정장은 32명의 디펜스를 함께했어요"처럼 단순한 대여를 넘어 <b>이야기를 잇는 캠퍼스 자원 순환 플랫폼</b>입니다.</p>
+
+      <h2>핵심 기능 4</h2>
+      <ul>
+        <li><b>Browse</b> — 카테고리 + 누적 스토리 미리보기</li>
+        <li><b>Loop</b> — 신청 → 픽업(NFC) → 사용 → 반납(NFC) → 리워드</li>
+        <li><b>NFC Story ★</b> — 옷마다 사용 이력·메시지 누적 (우리만의 차별점)</li>
+        <li><b>디지온도 + Map</b> — 반납 신뢰도 온도 + 순환소 위치</li>
+      </ul>
+
+      <h2>NFC 태그 → URL 매핑</h2>
+      <ul>
+        <li><code>index.html</code> — 메인 앱 진입 (홈/Browse)</li>
+        <li><code>loop.html?id=00032</code> — 5단계 대여 흐름 (정장)</li>
+        <li><code>story.html?id=00032</code> — 디펜스 정장 #32 스토리</li>
+        <li><code>story.html?id=00047</code> — 장우산 #47 스토리</li>
+        <li><code>story.html?id=00008</code> — 실험복 #8 스토리</li>
+        <li><code>story.html?id=00001</code> — 블레이저 (첫 사용자)</li>
+        <li><code>temp.html</code> — 디지온도 + Map</li>
+      </ul>
+
+      <h2>팀 6조</h2>
+      <p>박진홍 · <b>장민준</b>(팀장) · 조형윤 · 한정민</p>
+
+      <p style="margin-top:24px;font-size:11px;font-family:var(--font-mono);color:var(--line)">
+        SUNHWANSO · MID-FI PROTOTYPE · 2026.05<br>
+        디자인 시스템 v0.2 · 테라코타 + Pretendard + IBM Plex Mono
+      </p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html"><span class="nav__icon">⌂</span>홈</a>
+    <a href="loop.html"><span class="nav__icon">↻</span>빌리고</a>
+    <a href="story.html"><span class="nav__icon">◯</span>스토리</a>
+    <a href="temp.html"><span class="nav__icon">◐</span>내 온도</a>
+  </nav>
+</body>
+</html>
