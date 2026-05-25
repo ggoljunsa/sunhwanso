@@ -263,6 +263,117 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.6;
 }
 
+/* ========== Slide 3 · References ========== */
+.refs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  flex: 1;
+  align-content: center;
+}
+.ref-card {
+  background: var(--paper);
+  border: 1px solid var(--paper-2);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 24px rgba(43,35,27,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.ref-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(43,35,27,0.12);
+}
+.ref-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+.ref-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ref-card__pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(43,35,27,0.85);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.ref-card__body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+}
+.ref-card__name {
+  font-size: clamp(15px, 1.4vw, 19px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.ref-card__desc {
+  font-size: clamp(11px, 1vw, 13px);
+  color: var(--clay);
+  line-height: 1.55;
+}
+.ref-card__keyword {
+  margin-top: auto;
+  background: linear-gradient(135deg, var(--paper-2), #E5D8C2);
+  border-left: 4px solid var(--terra);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.ref-card__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--terra);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+.ref-card__keyword strong {
+  display: block;
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 3px;
+}
+.ref-card__keyword small {
+  font-size: 11px;
+  color: var(--clay);
+}
+.ref-card__credit {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--line);
+  text-align: right;
+  padding: 4px 14px 10px;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+  .refs-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ref-card__media { aspect-ratio: 16 / 8; }
+}
+
 /* ========== Slide 4 · Circulation Loop ========== */
 .loop {
   flex: 1;
