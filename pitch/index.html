@@ -373,38 +373,76 @@
       <h2 class="slide__title">앱과 공간이 같은 동선을 공유한다.</h2>
     </header>
     <div class="space-grid">
-      <svg viewBox="0 0 600 360" class="space-floor reveal reveal-1">
-        <!-- floor base -->
-        <rect x="20" y="20" width="560" height="320" fill="#F6F1EA" stroke="#CFC1AA" stroke-width="2" rx="8"/>
-        <!-- ① 입구 -->
-        <rect class="zone-rect" x="40" y="40" width="120" height="100" rx="6"/>
-        <text class="zone-num" x="100" y="80" text-anchor="middle">①</text>
-        <text class="zone-label" x="100" y="105" text-anchor="middle">입구</text>
-        <text class="zone-label" x="100" y="122" text-anchor="middle" fill="#7D4A32">QR/NFC</text>
-        <!-- ② 대여 -->
-        <rect class="zone-rect" x="180" y="40" width="220" height="100" rx="6"/>
-        <text class="zone-num" x="290" y="80" text-anchor="middle">②</text>
-        <text class="zone-label" x="290" y="105" text-anchor="middle">대여 코너</text>
-        <text class="zone-label" x="290" y="122" text-anchor="middle" fill="#7D4A32">행거 + 락커</text>
-        <!-- ③ 반납 -->
-        <rect class="zone-rect" x="420" y="40" width="140" height="100" rx="6"/>
-        <text class="zone-num" x="490" y="80" text-anchor="middle">③</text>
-        <text class="zone-label" x="490" y="105" text-anchor="middle">반납</text>
-        <text class="zone-label" x="490" y="122" text-anchor="middle" fill="#7D4A32">NFC 리더</text>
-        <!-- ④ 디지온도 -->
-        <rect class="zone-rect" x="40" y="200" width="260" height="120" rx="6" fill="#2B231B"/>
-        <text class="zone-num" x="170" y="240" text-anchor="middle" fill="#D99C2B">④</text>
-        <text class="zone-label" x="170" y="265" text-anchor="middle" fill="#F6F1EA">디지온도</text>
-        <text class="zone-label" x="170" y="282" text-anchor="middle" fill="#D99C2B">37.2° · 32 LOOPS</text>
-        <text class="zone-label" x="170" y="302" text-anchor="middle" fill="#CFC1AA">스토리 디스플레이</text>
-        <!-- ⑤ 리워드 -->
-        <rect class="zone-rect" x="320" y="200" width="240" height="120" rx="6" fill="#D99C2B" stroke="#D99C2B"/>
-        <text class="zone-num" x="440" y="240" text-anchor="middle" fill="#2B231B">⑤</text>
-        <text class="zone-label" x="440" y="265" text-anchor="middle" fill="#2B231B">리워드 카운터</text>
-        <text class="zone-label" x="440" y="285" text-anchor="middle" fill="#2B231B">P 적립 · 굿즈 교환</text>
-        <!-- 박루프 동선 -->
-        <path class="path-route" d="M100,90 Q140,160 290,90 Q420,90 490,90 Q500,180 440,260 Q300,310 170,260"/>
-        <circle class="persona-dot" cx="100" cy="90" r="7"/>
+      <svg viewBox="180 10 560 320" class="iso-floor reveal reveal-1" preserveAspectRatio="xMidYMid meet">
+
+        <!-- Floor base parallelogram (full footprint) -->
+        <polygon class="iso-base" points="400,60 700,210 520,300 220,150"/>
+
+        <!-- Subtle grid lines on floor -->
+        <g class="iso-grid-lines">
+          <line x1="460" y1="90"  x2="280" y2="180"/>
+          <line x1="520" y1="120" x2="340" y2="210"/>
+          <line x1="580" y1="150" x2="400" y2="240"/>
+          <line x1="640" y1="180" x2="460" y2="270"/>
+          <line x1="340" y1="90"  x2="640" y2="240"/>
+          <line x1="280" y1="120" x2="580" y2="270"/>
+        </g>
+
+        <!-- Zone 1 · 입구 (h=0.5) -->
+        <g class="iso-zone iso-zone--1">
+          <polygon class="face front" points="310,85 400,130 400,150 310,105"/>
+          <polygon class="face right" points="490,85 400,130 400,150 490,105"/>
+          <polygon class="face top"   points="400,40 490,85 400,130 310,85"/>
+          <text class="iso-num"  x="400" y="83">①</text>
+          <text class="iso-mini" x="400" y="100">QR</text>
+        </g>
+
+        <!-- Zone 2 · 대여 (h=0.4) -->
+        <g class="iso-zone iso-zone--2">
+          <polygon class="face front" points="400,134 520,194 520,210 400,150"/>
+          <polygon class="face right" points="610,149 520,194 520,210 610,165"/>
+          <polygon class="face top"   points="490,89 610,149 520,194 400,134"/>
+          <text class="iso-num"  x="505" y="138">②</text>
+          <text class="iso-mini" x="505" y="158">행거 · 락커</text>
+        </g>
+
+        <!-- Zone 3 · 반납 (h=0.6, with NFC ripple) -->
+        <g class="iso-zone iso-zone--3">
+          <polygon class="face front" points="520,186 610,231 610,255 520,210"/>
+          <polygon class="face right" points="700,186 610,231 610,255 700,210"/>
+          <polygon class="face top"   points="610,141 700,186 610,231 520,186"/>
+          <circle class="nfc-indicator" cx="610" cy="186" r="12"/>
+          <text class="iso-num"  x="610" y="186" style="fill:#F6F1EA">③</text>
+          <text class="iso-mini" x="610" y="216">NFC</text>
+        </g>
+
+        <!-- Zone 4 · 디지온도 (h=0.7, dark display) -->
+        <g class="iso-zone iso-zone--4">
+          <polygon class="face front" points="220,122 370,197 370,225 220,150"/>
+          <polygon class="face right" points="460,152 370,197 370,225 460,180"/>
+          <polygon class="face top"   points="310,77 460,152 370,197 220,122"/>
+          <text class="iso-num iso-num--light" x="340" y="130">④</text>
+          <text class="iso-mini" x="340" y="155">37.2° · 32 LOOPS</text>
+        </g>
+
+        <!-- Zone 5 · 리워드 (h=0.5, mustard) -->
+        <g class="iso-zone iso-zone--5">
+          <polygon class="face front" points="370,205 520,280 520,300 370,225"/>
+          <polygon class="face right" points="610,235 520,280 520,300 610,255"/>
+          <polygon class="face top"   points="460,160 610,235 520,280 370,205"/>
+          <text class="iso-num"  x="490" y="215">⑤</text>
+          <text class="iso-mini" x="490" y="235">REWARD · P</text>
+        </g>
+
+        <!-- 박루프 동선 (along floor) -->
+        <path id="routePath" class="iso-route" d="M 400 105 Q 470 120 505 157 Q 580 175 610 210 Q 460 175 340 165 Q 400 195 490 240"/>
+
+        <!-- 박루프 dot — animates along route -->
+        <circle class="iso-persona" r="7" fill="#D99C2B" stroke="#2B231B" stroke-width="2.5">
+          <animateMotion dur="7s" begin="3.5s" repeatCount="indefinite" rotate="auto">
+            <mpath href="#routePath"/>
+          </animateMotion>
+        </circle>
       </svg>
       <ol class="space-zones">
         <li class="reveal reveal-2"><span>①</span><div>입구 · QR/NFC 체크인<br><small>출석 적립 시작</small></div></li>
