@@ -273,7 +273,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .loop__inner {
   position: relative;
-  width: min(100%, 1080px);
+  width: min(100%, 1080px, calc(62vh * 16 / 10));
   aspect-ratio: 16 / 10;
   margin: 0 auto;
 }
@@ -418,29 +418,6 @@ button { font-family: inherit; cursor: pointer; }
 .loop__icon--3 { background: linear-gradient(135deg, var(--paper), var(--paper-2)); }
 .loop__icon--4 { background: linear-gradient(135deg, #E5D8C2, var(--paper-2)); }
 .loop__icon--5 { background: linear-gradient(135deg, var(--mustard), #E5BB6E); border-color: var(--terra-d); }
-
-.loop__back-arrow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-.loop__back-arrow path {
-  fill: none;
-  stroke: var(--terra);
-  stroke-width: 2;
-  stroke-dasharray: 4 6;
-  opacity: 0.5;
-  stroke-dashoffset: 2000;
-}
-.slide--loop.is-active .loop__back-arrow path {
-  animation: drawBack 3s 0.8s ease-out forwards;
-}
-@keyframes drawBack { to { stroke-dashoffset: 0; } }
 
 /* Mobile loop layout — stack vertically */
 @media (max-width: 900px) {
