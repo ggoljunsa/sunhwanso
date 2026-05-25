@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F6F1EA">
+  <title>순환소 · Pitch · 6조</title>
+  <link rel="stylesheet" href="pitch.css">
+</head>
+<body>
+
+<div class="progress" id="progress" style="width:10%"></div>
+
+<main class="deck" id="deck">
+
+  <!-- ============ S1 · COVER ============ -->
+  <section class="slide slide--cover is-active" data-slide="1" data-title="표지">
+    <div class="cover__loops">
+      <svg viewBox="0 0 400 400" class="cover__svg">
+        <circle cx="200" cy="200" r="60"/>
+        <circle cx="200" cy="200" r="120"/>
+        <circle cx="200" cy="200" r="180"/>
+      </svg>
+    </div>
+    <div class="cover__text">
+      <div class="cover__kicker reveal reveal-1">6조 · UI/UX 디자인 · 2026-1 후반기 팀프로젝트</div>
+      <h1 class="cover__title reveal reveal-2">
+        <span class="accent">순환소</span><span class="latin">Sunhwanso</span>
+      </h1>
+      <p class="cover__sub reveal reveal-3">DGIST 학내 의류 대여 + NFC 스토리 플랫폼</p>
+      <p class="cover__team reveal reveal-4">박진홍 · <strong>장민준</strong> · 조형윤 · 한정민</p>
+    </div>
+  </section>
+
+  <!-- ============ S2 · PROBLEM ============ -->
+  <section class="slide slide--pain" data-slide="2" data-title="문제 인식">
+    <header class="slide__head">
+      <span class="slide__kicker">PROBLEM</span>
+      <h2 class="slide__title">우리가 놓치고 있는 것들</h2>
+    </header>
+    <div class="pain-grid">
+      <div class="pain-card reveal reveal-1">
+        <div>
+          <div class="pain-card__num">01 · COST</div>
+          <h3>비용 부담</h3>
+          <p>졸업·디펜스 시즌마다 반복되는 일회성 정장 구매</p>
+        </div>
+        <div class="pain-card__metric">₩250,000<small>/회</small></div>
+      </div>
+      <div class="pain-card reveal reveal-2">
+        <div>
+          <div class="pain-card__num">02 · DELAY</div>
+          <h3>수령 지연</h3>
+          <p>학기 초 실험복 지급이 늦어지는 반복적 문제</p>
+        </div>
+        <div class="pain-card__metric">3~7일<small>매학기</small></div>
+      </div>
+      <div class="pain-card reveal reveal-3">
+        <div>
+          <div class="pain-card__num">03 · WASTE</div>
+          <h3>자원 낭비</h3>
+          <p>한 번 입고 버려지는 의류, 캠퍼스 내 순환 구조 부재</p>
+        </div>
+        <div class="pain-card__metric">0<small>순환 거점</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S3 · SOLUTION ============ -->
+  <section class="slide slide--solution" data-slide="3" data-title="솔루션">
+    <header class="slide__head">
+      <span class="slide__kicker">SOLUTION</span>
+      <h2 class="slide__title reveal reveal-1">단순한 대여를 넘어<br><span class="accent">'이야기'를 잇다.</span></h2>
+    </header>
+    <p class="lead reveal reveal-2">에브리타임·당근마켓의 약점인 <b>신뢰도 부족</b>과 <b>장소 불일치</b>를 보완하는 오프라인 거점형 순환 시스템.</p>
+    <div class="solution-pair">
+      <div class="pillar reveal reveal-3">
+        <div class="pillar__icon">🛡</div>
+        <h3>신뢰 기반</h3>
+        <p>검증된 캠퍼스 내 거점 · 학교 협력 · NFC 추적으로 매번 같은 품질</p>
+      </div>
+      <div class="pillar reveal reveal-4">
+        <div class="pillar__icon">📖</div>
+        <h3>스토리 연결</h3>
+        <p>옷에 담긴 사용자 서사 — "32번째 디펜스를 함께한 정장"의 무게</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S4 · PERSONA ============ -->
+  <section class="slide slide--persona" data-slide="4" data-title="페르소나">
+    <header class="slide__head">
+      <span class="slide__kicker">PERSONA</span>
+      <h2 class="slide__title">박루프 — 22세, 졸업 학기</h2>
+    </header>
+    <div class="persona-grid">
+      <div class="persona-card reveal reveal-1">
+        <div class="persona-avatar">🌰</div>
+        <div class="persona-info">
+          <div class="persona-name">박루프 <small>(가명)</small></div>
+          <div class="persona-meta">DGIST 학부 4학년 · 졸업 학기</div>
+          <div class="persona-tags">
+            <span>#졸업학기</span><span>#디펜스_1주일전</span><span>#새_랩_이동</span><span>#면접시즌</span><span>#불안</span>
+          </div>
+        </div>
+      </div>
+      <blockquote class="persona-quote reveal reveal-2">"디펜스 일주일 전, 정장 25만원을<br>살까 말까 새벽까지 고민했어요."</blockquote>
+      <div class="persona-timeline reveal reveal-3">
+        <div class="tl-item"><div class="tl-dot"></div><div><strong>3월</strong>새 랩 이동 · 실험복</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div><strong>4월</strong>면접 시즌 · 정장</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div><strong>5월</strong>디펜스 · 정장</div></div>
+        <div class="tl-item"><div class="tl-dot tl-dot--rain"></div><div><strong>+ 갑작스러운 비</strong>우산 결핍</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S5 · PAIN × GOAL ============ -->
+  <section class="slide slide--pg" data-slide="5" data-title="페인 × 목표">
+    <header class="slide__head">
+      <span class="slide__kicker">PAIN × DESIGN GOAL</span>
+      <h2 class="slide__title">4가지 페인 → 4가지 디자인 목표</h2>
+    </header>
+    <div class="pg-rows">
+      <div class="pg-row reveal reveal-1">
+        <div class="pg-pain">
+          <div class="pg-num">01</div>
+          <strong>취업·발표 시즌 불안</strong>
+          <small>디펜스 직전 정장 25만원, 살까 말까</small>
+        </div>
+        <div class="pg-arrow">→</div>
+        <div class="pg-goal">
+          <strong>큰 비용 부담 없이 발표 의류 확보</strong>
+          <small>대여 + 학교 보조 + CSR</small>
+        </div>
+      </div>
+      <div class="pg-row reveal reveal-2">
+        <div class="pg-pain">
+          <div class="pg-num">02</div>
+          <strong>학기 초 적응 마찰</strong>
+          <small>실험복 사이즈 안 맞음, 수령까지 며칠 지연</small>
+        </div>
+        <div class="pg-arrow">→</div>
+        <div class="pg-goal">
+          <strong>마찰 없는 빠른 수령</strong>
+          <small>순환소 1호점에서 즉시 픽업</small>
+        </div>
+      </div>
+      <div class="pg-row reveal reveal-3">
+        <div class="pg-pain">
+          <div class="pg-num">03</div>
+          <strong>갑작스러운 생활 결핍</strong>
+          <small>비 오는 날 우산, 쌀쌀해진 날 외투</small>
+        </div>
+        <div class="pg-arrow">→</div>
+        <div class="pg-goal">
+          <strong>결핍을 즉시 메우는 접근성</strong>
+          <small>우산·외투 상시 비치 + 캠퍼스 지도</small>
+        </div>
+      </div>
+      <div class="pg-row reveal reveal-4">
+        <div class="pg-pain">
+          <div class="pg-num">04</div>
+          <strong>인지 부재</strong>
+          <small>학내에 빌릴 수 있다는 사실 자체를 모름</small>
+        </div>
+        <div class="pg-arrow">→</div>
+        <div class="pg-goal">
+          <strong>"빌릴 수 있다"를 캠퍼스에 각인</strong>
+          <small>전광판 · 동선 · NFC 스토리</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S6 · CJM ============ -->
+  <section class="slide slide--cjm" data-slide="6" data-title="고객 여정 지도">
+    <header class="slide__head">
+      <span class="slide__kicker">CUSTOMER JOURNEY ★</span>
+      <h2 class="slide__title">한 학기, 한 정장, <span class="accent">한 이야기.</span></h2>
+    </header>
+    <div class="cjm-chart">
+      <svg viewBox="0 0 800 200" class="cjm-curve" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="cjmGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C25A35" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#C25A35" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path class="cjm-curve__area" d="M40,180 C140,170 200,150 240,140 C300,120 340,100 400,80 C460,55 520,40 600,35 C660,32 720,40 760,55 L760,200 L40,200 Z"/>
+        <path class="cjm-curve__path" d="M40,180 C140,170 200,150 240,140 C300,120 340,100 400,80 C460,55 520,40 600,35 C660,32 720,40 760,55"/>
+        <circle class="cjm-curve__dot" cx="40"  cy="180" r="8"/>
+        <circle class="cjm-curve__dot" cx="184" cy="148" r="8"/>
+        <circle class="cjm-curve__dot" cx="328" cy="113" r="8"/>
+        <circle class="cjm-curve__dot" cx="472" cy="63"  r="8"/>
+        <circle class="cjm-curve__dot" cx="616" cy="34"  r="8"/>
+        <circle class="cjm-curve__dot" cx="760" cy="55"  r="8"/>
+      </svg>
+      <div class="cjm-steps">
+        <div class="cjm-step">
+          <div class="cjm-emoji">😰</div>
+          <div class="cjm-label">01 · 인지</div>
+          <div class="cjm-feel">불안</div>
+          <div class="cjm-desc">정장 25만원 고민. "순환소 알아?"</div>
+        </div>
+        <div class="cjm-step">
+          <div class="cjm-emoji">🤔</div>
+          <div class="cjm-label">02 · Browse</div>
+          <div class="cjm-feel">호기심</div>
+          <div class="cjm-desc">"32회 디펜스 동행" 배지 발견</div>
+        </div>
+        <div class="cjm-step">
+          <div class="cjm-emoji">🙂</div>
+          <div class="cjm-label">03 · 신청</div>
+          <div class="cjm-feel">안도</div>
+          <div class="cjm-desc">M사이즈 · 5/18~22 예약</div>
+        </div>
+        <div class="cjm-step">
+          <div class="cjm-emoji">😊</div>
+          <div class="cjm-label">04 · 픽업</div>
+          <div class="cjm-feel">설렘</div>
+          <div class="cjm-desc">순환소 → NFC 인식 → 락커 A-04</div>
+        </div>
+        <div class="cjm-step">
+          <div class="cjm-emoji">🎉</div>
+          <div class="cjm-label">05 · 디펜스</div>
+          <div class="cjm-feel">성취</div>
+          <div class="cjm-desc">발표 성공 · 33번째 이야기</div>
+        </div>
+        <div class="cjm-step">
+          <div class="cjm-emoji">🥰</div>
+          <div class="cjm-label">06 · 반납·기록</div>
+          <div class="cjm-feel">소속</div>
+          <div class="cjm-desc">NFC + 메시지 · 디지온도 +0.7°</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S7 · FEATURES ============ -->
+  <section class="slide slide--feats" data-slide="7" data-title="핵심 기능 4">
+    <header class="slide__head">
+      <span class="slide__kicker">4 FEATURES</span>
+      <h2 class="slide__title">앱 핵심 기능 — <span class="accent">③ NFC가 차별점</span></h2>
+    </header>
+    <div class="feats-grid">
+      <div class="feat-card reveal reveal-1">
+        <div class="feat-num">①</div>
+        <div class="feat-tag">BROWSE</div>
+        <h3>카테고리 + 스토리 미리보기</h3>
+        <p>"32회 디펜스 동행" 배지로 빌리기 전부터 이야기를 느낌</p>
+      </div>
+      <div class="feat-card reveal reveal-2">
+        <div class="feat-num">②</div>
+        <div class="feat-tag">LOOP · 5단계</div>
+        <h3>신청 → 픽업(NFC) → 사용 → 반납 → 리워드</h3>
+        <p>비접촉 메인 시나리오, 마찰 없는 흐름</p>
+      </div>
+      <div class="feat-card feat-card--star reveal reveal-3">
+        <div class="feat-num">③</div>
+        <div class="feat-tag">NFC STORY ★</div>
+        <h3>옷마다 누적되는 사용자 서사</h3>
+        <p>N번째 사용자 · 메시지 · 수선 기록 — 우리만의 차별점</p>
+      </div>
+      <div class="feat-card reveal reveal-4">
+        <div class="feat-num">④</div>
+        <div class="feat-tag">DIGI-TEMP + MAP</div>
+        <h3>신뢰 온도 + 캠퍼스 지도</h3>
+        <p>잘 반납할수록 ↑ 우선권 · 굿즈 교환</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S8 · LIVE DEMO ============ -->
+  <section class="slide slide--demo" data-slide="8" data-title="라이브 데모">
+    <header class="slide__head">
+      <span class="slide__kicker">LIVE · DEMO</span>
+      <h2 class="slide__title">직접 폰을 갖다 대보세요.</h2>
+    </header>
+    <div class="demo-grid">
+      <div class="phone reveal reveal-1">
+        <iframe id="demoFrame" src="../story.html?id=00032" loading="lazy" title="순환소 라이브 데모"></iframe>
+      </div>
+      <div class="demo-side">
+        <div class="demo-controls reveal reveal-2">
+          <button class="demo-btn is-active" data-target="../story.html?id=00032">🤵 정장 #32</button>
+          <button class="demo-btn" data-target="../story.html?id=00047">☂ 우산 #47</button>
+          <button class="demo-btn" data-target="../story.html?id=00008">🥼 실험복 #8</button>
+          <button class="demo-btn" data-target="../story.html?id=00001">🧥 블레이저</button>
+          <button class="demo-btn" data-target="../loop.html?id=00032">↻ 5단계 흐름</button>
+          <button class="demo-btn" data-target="../temp.html">◐ 디지온도</button>
+        </div>
+        <div class="qr-box reveal reveal-3">
+          <div id="qrcode"></div>
+          <div class="qr-caption">
+            폰으로 QR 스캔 → 직접 체험<br>
+            (또는 NFC 스티커에 대기)
+            <code id="qrUrl">https://ggoljunsa.github.io/sunhwanso/</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S9 · SPACE ============ -->
+  <section class="slide slide--space" data-slide="9" data-title="공간 · 순환소 1호점">
+    <header class="slide__head">
+      <span class="slide__kicker">SPACE · 순환소 1호점</span>
+      <h2 class="slide__title">앱과 공간이 같은 동선을 공유한다.</h2>
+    </header>
+    <div class="space-grid">
+      <svg viewBox="0 0 600 360" class="space-floor reveal reveal-1">
+        <!-- floor base -->
+        <rect x="20" y="20" width="560" height="320" fill="#F6F1EA" stroke="#CFC1AA" stroke-width="2" rx="8"/>
+        <!-- ① 입구 -->
+        <rect class="zone-rect" x="40" y="40" width="120" height="100" rx="6"/>
+        <text class="zone-num" x="100" y="80" text-anchor="middle">①</text>
+        <text class="zone-label" x="100" y="105" text-anchor="middle">입구</text>
+        <text class="zone-label" x="100" y="122" text-anchor="middle" fill="#7D4A32">QR/NFC</text>
+        <!-- ② 대여 -->
+        <rect class="zone-rect" x="180" y="40" width="220" height="100" rx="6"/>
+        <text class="zone-num" x="290" y="80" text-anchor="middle">②</text>
+        <text class="zone-label" x="290" y="105" text-anchor="middle">대여 코너</text>
+        <text class="zone-label" x="290" y="122" text-anchor="middle" fill="#7D4A32">행거 + 락커</text>
+        <!-- ③ 반납 -->
+        <rect class="zone-rect" x="420" y="40" width="140" height="100" rx="6"/>
+        <text class="zone-num" x="490" y="80" text-anchor="middle">③</text>
+        <text class="zone-label" x="490" y="105" text-anchor="middle">반납</text>
+        <text class="zone-label" x="490" y="122" text-anchor="middle" fill="#7D4A32">NFC 리더</text>
+        <!-- ④ 디지온도 -->
+        <rect class="zone-rect" x="40" y="200" width="260" height="120" rx="6" fill="#2B231B"/>
+        <text class="zone-num" x="170" y="240" text-anchor="middle" fill="#D99C2B">④</text>
+        <text class="zone-label" x="170" y="265" text-anchor="middle" fill="#F6F1EA">디지온도</text>
+        <text class="zone-label" x="170" y="282" text-anchor="middle" fill="#D99C2B">37.2° · 32 LOOPS</text>
+        <text class="zone-label" x="170" y="302" text-anchor="middle" fill="#CFC1AA">스토리 디스플레이</text>
+        <!-- ⑤ 리워드 -->
+        <rect class="zone-rect" x="320" y="200" width="240" height="120" rx="6" fill="#D99C2B" stroke="#D99C2B"/>
+        <text class="zone-num" x="440" y="240" text-anchor="middle" fill="#2B231B">⑤</text>
+        <text class="zone-label" x="440" y="265" text-anchor="middle" fill="#2B231B">리워드 카운터</text>
+        <text class="zone-label" x="440" y="285" text-anchor="middle" fill="#2B231B">P 적립 · 굿즈 교환</text>
+        <!-- 박루프 동선 -->
+        <path class="path-route" d="M100,90 Q140,160 290,90 Q420,90 490,90 Q500,180 440,260 Q300,310 170,260"/>
+        <circle class="persona-dot" cx="100" cy="90" r="7"/>
+      </svg>
+      <ol class="space-zones">
+        <li class="reveal reveal-2"><span>①</span><div>입구 · QR/NFC 체크인<br><small>출석 적립 시작</small></div></li>
+        <li class="reveal reveal-3"><span>②</span><div>대여 코너 · 행거 + 락커<br><small>실제 옷이 거기에 있다</small></div></li>
+        <li class="reveal reveal-4"><span>③</span><div>반납 · NFC 리더<br><small>자가 상태 체크</small></div></li>
+        <li class="reveal reveal-5"><span>④</span><div>디지온도 + 스토리 월<br><small>오늘 누적 표출</small></div></li>
+        <li class="reveal reveal-6"><span>⑤</span><div>리워드 카운터<br><small>온도 → 굿즈 교환</small></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ S10 · BIZ + CLOSING ============ -->
+  <section class="slide slide--biz" data-slide="10" data-title="비즈니스 · 마무리">
+    <header class="slide__head">
+      <span class="slide__kicker">BUSINESS · 한 학기 과제를 넘어</span>
+      <h2 class="slide__title">캠퍼스가 한 바퀴를 시작한다.</h2>
+    </header>
+    <div class="biz-grid">
+      <div class="biz-card reveal reveal-1">
+        <div class="biz-emoji">🏫</div>
+        <h3>학교 예산 절감</h3>
+        <p>의무 복장 비용 보조 → 학생 부담 ↓ + 학교 PR ↑</p>
+      </div>
+      <div class="biz-card reveal reveal-2">
+        <div class="biz-emoji">🏢</div>
+        <h3>기업 CSR</h3>
+        <p>한섬·삼성물산·듀폰 시드 기증</p>
+      </div>
+      <div class="biz-card reveal reveal-3">
+        <div class="biz-emoji">🎓</div>
+        <h3>졸업생 기증</h3>
+        <p>"○○○ 선배가 시작한 정장" 명패</p>
+      </div>
+      <div class="biz-card reveal reveal-4">
+        <div class="biz-emoji">📅</div>
+        <h3>학기말 리유스 마켓</h3>
+        <p>연 2회 펄스 · 신입생 유입</p>
+      </div>
+    </div>
+    <blockquote class="closing reveal reveal-5">"버리지 않고 잇는 캠퍼스 —<br><span class="accent">순환소가 한 바퀴를 시작합니다."</span></blockquote>
+    <div class="thanks reveal reveal-6">감사합니다 · Q&amp;A</div>
+  </section>
+
+</main>
+
+<!-- ========== Overview (ESC) ========== -->
+<div class="overview" id="overview">
+  <div class="overview-grid" id="overviewGrid"></div>
+</div>
+
+<!-- ========== Controls ========== -->
+<nav class="controls">
+  <button id="prev" aria-label="이전 (←)">‹</button>
+  <span class="counter"><span id="cur">1</span> / <span id="total">10</span></span>
+  <button id="next" aria-label="다음 (→)">›</button>
+  <button id="overviewBtn" aria-label="전체 보기 (ESC)" style="font-size:14px">⠿</button>
+  <button id="fs" aria-label="전체화면 (F)">⛶</button>
+</nav>
+
+<div class="hint" id="hint">← → 키 · Space · F 전체화면 · ESC 전체 보기</div>
+
+<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+<script src="pitch.js"></script>
+</body>
+</html>

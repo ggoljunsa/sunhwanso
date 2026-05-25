@@ -17,11 +17,18 @@ sunhwanso-app/
 ├── temp.html       # 디지온도 + Map
 ├── about.html      # 프로젝트 설명
 ├── README.md       # 이 문서
-└── assets/
-    ├── styles.css  # 디자인 시스템 (테라코타 8색, Pretendard, IBM Plex Mono)
-    ├── data.js     # 옷·스토리 mock 데이터
-    └── app.js      # 공통 JS (그리드 렌더, 토스트 등)
+├── assets/
+│   ├── styles.css  # 디자인 시스템 (테라코타 8색, Pretendard, IBM Plex Mono)
+│   ├── data.js     # 옷·스토리 mock 데이터
+│   └── app.js      # 공통 JS (그리드 렌더, 토스트 등)
+└── pitch/          # 인터랙티브 발표자료 (10 슬라이드, HTML 기반)
+    ├── index.html  # 발표 자체
+    ├── pitch.css   # 슬라이드 스타일 + 애니메이션
+    └── pitch.js    # 키보드/터치 내비, QR, 라이브 데모 iframe
 ```
+
+**발표용 URL**: `https://<USERNAME>.github.io/sunhwanso/pitch/`
+키보드: ← → / Space / N · B / F (전체화면) / ESC (전체보기) / 1~9, 0 (점프)
 
 순수 정적 HTML/CSS/JS — 빌드 없음, 의존성 없음. GitHub Pages에 그대로 올리면 됩니다.
 
