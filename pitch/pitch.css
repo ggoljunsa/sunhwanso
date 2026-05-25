@@ -263,6 +263,203 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.6;
 }
 
+/* ========== Slide 4 · Circulation Loop ========== */
+.loop {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+.loop__inner {
+  position: relative;
+  width: min(100%, 1080px);
+  aspect-ratio: 16 / 10;
+  margin: 0 auto;
+}
+.loop__ring {
+  position: absolute;
+  inset: 14% 26%;
+  border: 2.5px dashed var(--line);
+  border-radius: 50%;
+  opacity: 0.55;
+  z-index: 1;
+}
+.loop__ring--inner {
+  inset: 22% 32%;
+  border-style: dotted;
+  opacity: 0.35;
+}
+.slide--loop.is-active .loop__ring {
+  animation: ringPop 1s 0.3s ease-out forwards;
+  transform: scale(0.85);
+  opacity: 0;
+}
+.slide--loop.is-active .loop__ring--inner { animation-delay: 0.5s; }
+@keyframes ringPop {
+  to { transform: scale(1); opacity: 0.55; }
+}
+.slide--loop.is-active .loop__ring--inner {
+  animation-name: ringPopInner;
+}
+@keyframes ringPopInner {
+  to { transform: scale(1); opacity: 0.35; }
+}
+.loop__center {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: clamp(160px, 17vw, 220px);
+  height: clamp(160px, 17vw, 220px);
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
+  border-radius: 50%;
+  background: var(--paper-2);
+  border: 3px solid var(--terra);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0 8px 24px rgba(194,90,53,0.18);
+  transition: transform 0.7s 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s 0.7s ease;
+}
+.slide--loop.is-active .loop__center {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+.loop__center-label {
+  font-family: var(--font-mono);
+  font-size: clamp(9px, 0.8vw, 11px);
+  color: var(--terra);
+  letter-spacing: 0.3em;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.loop__center-title {
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.loop__center-title .accent { color: var(--terra); }
+.loop__center-arrow {
+  position: absolute;
+  bottom: -22px;
+  font-size: 22px;
+  color: var(--terra);
+  animation: loopSpin 4s linear infinite;
+}
+@keyframes loopSpin { to { transform: rotate(360deg); } }
+
+.loop__stage {
+  position: absolute;
+  width: clamp(200px, 22vw, 260px);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  z-index: 3;
+}
+.loop__icon {
+  width: clamp(54px, 6vw, 72px);
+  height: clamp(54px, 6vw, 72px);
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2.5px solid var(--terra);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(24px, 2.8vw, 34px);
+  flex: none;
+  box-shadow: 0 4px 14px rgba(194,90,53,0.18);
+  position: relative;
+}
+.loop__num {
+  font-family: var(--font-mono);
+  font-size: clamp(9px, 0.8vw, 11px);
+  color: var(--terra);
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.loop__stage h3 {
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.loop__stage p {
+  font-size: clamp(11px, 1vw, 13px);
+  color: var(--clay);
+  line-height: 1.5;
+}
+.loop__text { flex: 1; min-width: 0; }
+
+/* Stage positions — pentagon-ish around central wreath */
+.loop__stage--1 {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.loop__stage--1 .loop__text { text-align: center; }
+.loop__stage--2 { top: 32%; right: 0; }
+.loop__stage--3 { bottom: 2%; right: 6%; }
+.loop__stage--4 { bottom: 2%; left: 6%; flex-direction: row-reverse; text-align: right; }
+.loop__stage--5 { top: 32%; left: 0; flex-direction: row-reverse; text-align: right; }
+
+/* Icon emoji-on-circle style per stage */
+.loop__icon--1 { background: linear-gradient(135deg, var(--paper-2), #E5D8C2); }
+.loop__icon--2 { background: linear-gradient(135deg, #FFF4E6, var(--paper-2)); }
+.loop__icon--3 { background: linear-gradient(135deg, var(--paper), var(--paper-2)); }
+.loop__icon--4 { background: linear-gradient(135deg, #E5D8C2, var(--paper-2)); }
+.loop__icon--5 { background: linear-gradient(135deg, var(--mustard), #E5BB6E); border-color: var(--terra-d); }
+
+.loop__back-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.loop__back-arrow path {
+  fill: none;
+  stroke: var(--terra);
+  stroke-width: 2;
+  stroke-dasharray: 4 6;
+  opacity: 0.5;
+  stroke-dashoffset: 2000;
+}
+.slide--loop.is-active .loop__back-arrow path {
+  animation: drawBack 3s 0.8s ease-out forwards;
+}
+@keyframes drawBack { to { stroke-dashoffset: 0; } }
+
+/* Mobile loop layout — stack vertically */
+@media (max-width: 900px) {
+  .loop__inner { aspect-ratio: auto; }
+  .loop__ring, .loop__center, .loop__back-arrow { display: none; }
+  .loop__stage {
+    position: static;
+    width: 100%;
+    transform: none;
+    flex-direction: row;
+    text-align: left;
+    margin-bottom: 14px;
+  }
+  .loop__stage--4, .loop__stage--5 {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
 /* ========== Slide 4 · Persona ========== */
 .persona-grid {
   display: grid;
