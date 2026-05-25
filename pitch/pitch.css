@@ -422,7 +422,7 @@ button { font-family: inherit; cursor: pointer; }
 /* Mobile loop layout — stack vertically */
 @media (max-width: 900px) {
   .loop__inner { aspect-ratio: auto; }
-  .loop__ring, .loop__center, .loop__back-arrow { display: none; }
+  .loop__ring, .loop__center { display: none; }
   .loop__stage {
     position: static;
     width: 100%;
