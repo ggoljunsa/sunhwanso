@@ -455,6 +455,262 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.6;
 }
 
+/* ========== Slide 4 · Naming flow (interactive) ========== */
+.naming-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 3vh;
+  flex: 1;
+  justify-content: flex-start;
+}
+.name-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.name-chip {
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--paper-2);
+  border: 2px solid var(--line);
+  font-family: inherit;
+  font-size: clamp(15px, 1.4vw, 18px);
+  font-weight: 600;
+  color: var(--clay);
+  cursor: pointer;
+  transition: all 0.45s cubic-bezier(0.34, 1.4, 0.64, 1);
+  position: relative;
+}
+.name-chip:hover {
+  border-color: var(--terra);
+  color: var(--terra);
+  transform: translateY(-2px);
+}
+.name-chip.is-visited {
+  background: var(--paper);
+  border-color: var(--terra);
+  color: var(--terra);
+}
+.name-chip.is-visited::after {
+  content: '✓';
+  position: absolute;
+  top: -6px; right: -6px;
+  width: 18px; height: 18px;
+  background: var(--terra);
+  color: var(--paper);
+  border-radius: 50%;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.name-chip.is-active {
+  background: var(--terra);
+  color: var(--paper);
+  border-color: var(--terra-d);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(194,90,53,0.3);
+}
+.name-chip.is-faded {
+  opacity: 0.2;
+  transform: scale(0.85);
+  pointer-events: none;
+  filter: grayscale(70%);
+}
+.name-chip.is-chosen {
+  background: var(--terra);
+  color: var(--paper);
+  border-color: var(--terra-d);
+  font-size: clamp(22px, 2.4vw, 30px);
+  padding: 18px 40px;
+  transform: scale(1.18);
+  box-shadow: 0 12px 32px rgba(194,90,53,0.5);
+  z-index: 5;
+}
+.name-chip.is-chosen::after { display: none; }
+
+.name-meaning {
+  min-height: 56px;
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+  padding: 14px 22px;
+  background: var(--paper-2);
+  border-radius: 14px;
+  line-height: 1.6;
+  font-size: clamp(12px, 1.1vw, 15px);
+  color: var(--ink);
+  transition: opacity 0.3s ease;
+}
+.name-meaning__hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--clay);
+  opacity: 0.7;
+}
+.name-meaning strong {
+  color: var(--terra);
+  font-weight: 700;
+  margin-right: 6px;
+}
+.name-meaning small {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--clay);
+  opacity: 0.7;
+}
+
+.name-decide {
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+.name-decide.is-ready {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  animation: pulseGlow 1.8s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 4px 16px rgba(43,35,27,0.18); }
+  50%      { box-shadow: 0 6px 28px rgba(194,90,53,0.5); }
+}
+.name-decide:hover {
+  background: var(--terra-d);
+}
+
+.brand-reveal {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.6s 0.4s ease, transform 0.6s 0.4s ease, max-height 0.6s 0.4s ease;
+}
+.brand-reveal.is-shown {
+  opacity: 1;
+  max-height: 400px;
+  transform: translateY(0);
+  margin-top: 8px;
+}
+.brand-card {
+  background: linear-gradient(135deg, var(--paper-2), #E5D8C2);
+  border: 2px solid var(--terra);
+  border-radius: 20px;
+  padding: 22px 28px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+  align-items: center;
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  box-shadow: 0 12px 36px rgba(194,90,53,0.18);
+}
+.brand-card__check {
+  position: absolute;
+  top: -12px; right: 22px;
+  background: var(--terra);
+  color: var(--paper);
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+.brand-card__loops {
+  width: clamp(70px, 7vw, 96px);
+  height: clamp(70px, 7vw, 96px);
+  color: var(--terra);
+  flex: none;
+}
+.brand-card__loops circle:nth-child(1) {
+  transform-origin: center;
+  animation: brandSpin 8s linear infinite;
+}
+.brand-card__loops circle:nth-child(2) {
+  transform-origin: center;
+  animation: brandSpin 12s linear infinite reverse;
+}
+.brand-card__loops circle:nth-child(3) {
+  transform-origin: center;
+  animation: brandSpin 16s linear infinite;
+}
+@keyframes brandSpin {
+  to { transform: rotate(360deg); }
+}
+.brand-card__body { min-width: 0; }
+.brand-card__name {
+  font-size: clamp(26px, 2.6vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.brand-card__name span {
+  font-family: var(--font-mono);
+  font-size: 0.55em;
+  color: var(--terra);
+  font-weight: 500;
+  margin-left: 10px;
+  letter-spacing: 0;
+}
+.brand-card__meaning {
+  font-size: clamp(12px, 1.1vw, 14px);
+  color: var(--clay);
+  margin-bottom: 4px;
+}
+.brand-card__meaning b { color: var(--ink); font-weight: 700; }
+.brand-card__meaning code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--terra);
+  background: transparent;
+  margin: 0 4px;
+}
+.brand-card__tag {
+  font-size: clamp(13px, 1.2vw, 15px);
+  color: var(--terra-d);
+  font-weight: 600;
+  margin: 8px 0;
+  letter-spacing: -0.01em;
+}
+.brand-card__mascot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--paper);
+  border-radius: 12px;
+  margin-top: 6px;
+}
+.brand-card__mascot-emoji {
+  font-size: clamp(24px, 2.4vw, 32px);
+  flex: none;
+}
+.brand-card__mascot-text {
+  font-size: clamp(11px, 1vw, 13px);
+  color: var(--clay);
+  line-height: 1.5;
+}
+.brand-card__mascot-text b { color: var(--ink); }
+
 /* ========== Slide 3 · References ========== */
 .refs-grid {
   display: grid;

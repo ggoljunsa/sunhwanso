@@ -128,6 +128,47 @@
   // ---------- Hint auto-hide ----------
   setTimeout(() => elHint.classList.add('is-hidden'), 4500);
 
+  // ---------- Slide 4: naming flow ----------
+  const nameDescriptions = {
+    '순환소': '순환(循環) + 소(所). 한 거점에서 자원이 한 바퀴 돈다. 컨셉도 공간성도 다 담김.',
+    '빌리고': '동사 그대로의 직관적 이름. 행동은 잘 보이지만 "이야기·순환"의 미가 약함.',
+    '디지장': '디지털 + 시장. 트렌디하지만 가벼움. 정장·발표복 무드와 불일치.',
+    '둘레': '원의 둘레, 한 바퀴. 시적이지만 무엇인지 한 번에 안 잡힘.',
+    '도토리': '귀여운 메타포라 산만함. 대신 마스코트 "도리"로 살아남음.'
+  };
+  const chips = document.querySelectorAll('#nameChips .name-chip');
+  const meaningEl = document.getElementById('nameMeaning');
+  const decideBtn = document.getElementById('nameDecide');
+  const brandReveal = document.getElementById('brandReveal');
+  if (chips.length && meaningEl && decideBtn && brandReveal) {
+    chips.forEach((chip) => {
+      chip.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const name = chip.dataset.name;
+        chips.forEach((c) => c.classList.remove('is-active'));
+        chip.classList.add('is-active', 'is-visited');
+        meaningEl.innerHTML = `<strong>${name}</strong> — ${nameDescriptions[name]}`;
+        decideBtn.classList.add('is-ready');
+      });
+    });
+    decideBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      chips.forEach((c) => {
+        if (c.dataset.name === '순환소') {
+          c.classList.remove('is-active');
+          c.classList.add('is-chosen');
+        } else {
+          c.classList.add('is-faded');
+          c.classList.remove('is-active', 'is-visited');
+        }
+      });
+      decideBtn.classList.remove('is-ready');
+      decideBtn.style.display = 'none';
+      meaningEl.style.display = 'none';
+      brandReveal.classList.add('is-shown');
+    });
+  }
+
   // ---------- Slide 2: pain cards flip on click ----------
   document.querySelectorAll('[data-flip]').forEach((card) => {
     card.addEventListener('click', (e) => {
