@@ -144,6 +144,9 @@
   // ---------- Hint auto-hide ----------
   setTimeout(() => elHint.classList.add('is-hidden'), 4500);
 
+  // ---------- ?expand=1 — auto-show interactive final states for screenshot/PDF ----------
+  const expandMode = !!Sunhwanso.qs('expand');
+
   // ---------- Slide 4: naming flow ----------
   const nameDescriptions = {
     '순환소': '순환(循環) + 소(所). 한 거점에서 자원이 한 바퀴 돈다. 컨셉도 공간성도 다 담김.',
@@ -183,6 +186,9 @@
       meaningEl.style.display = 'none';
       brandReveal.classList.add('is-shown');
     });
+
+    // Auto-expand for PDF screenshot
+    if (expandMode) decideBtn.click();
   }
 
   // ---------- Slide 2: pain cards flip on click ----------
