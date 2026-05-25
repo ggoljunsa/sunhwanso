@@ -39,29 +39,122 @@
       <h2 class="slide__title">우리가 놓치고 있는 것들</h2>
     </header>
     <div class="pain-grid">
-      <div class="pain-card reveal reveal-1">
-        <div>
-          <div class="pain-card__num">01 · COST</div>
-          <h3>비용 부담</h3>
-          <p>졸업·디펜스 시즌마다 반복되는 일회성 정장 구매</p>
+      <!-- ① 비용 부담 -->
+      <div class="pain-card reveal reveal-1" data-flip>
+        <div class="pain-card__inner">
+          <div class="pain-card__front">
+            <div>
+              <div class="pain-card__num">01 · COST</div>
+              <h3>비용 부담</h3>
+              <p>졸업·디펜스 시즌마다 반복되는 일회성 정장 구매</p>
+            </div>
+            <div>
+              <div class="pain-card__metric">₩250,000<small>/회</small></div>
+              <div class="pain-card__hint">데이터 보기</div>
+            </div>
+          </div>
+          <div class="pain-card__back">
+            <div>
+              <div class="pain-back__kicker">DATA</div>
+              <div class="pain-back__title">정장 한 벌 — 평균 가격 비교</div>
+              <div class="bar-chart">
+                <div class="bar-row">
+                  <span class="bar-label">새 구매</span>
+                  <div class="bar-track"><div class="bar bar--terra" style="--w:100%">₩250,000</div></div>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">예복 대여</span>
+                  <div class="bar-track"><div class="bar bar--clay" style="--w:88%">₩220,000</div></div>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">순환소</span>
+                  <div class="bar-track"><div class="bar bar--mustard" style="--w:6%">₩0</div></div>
+                </div>
+              </div>
+              <div class="pain-back__caption">
+                1년 1번 입자고 25만원. 일반 대여도 별 차이 없음.<br>
+                <strong>학교 보조 + CSR로 학생 부담 0원에 가깝게.</strong>
+              </div>
+            </div>
+            <div>
+              <div class="pain-back__source">출처: miso.kr 의상 대여 평균가 (2024)</div>
+              <div class="pain-card__hint pain-card__hint--back">돌아가기</div>
+            </div>
+          </div>
         </div>
-        <div class="pain-card__metric">₩250,000<small>/회</small></div>
       </div>
-      <div class="pain-card reveal reveal-2">
-        <div>
-          <div class="pain-card__num">02 · DELAY</div>
-          <h3>수령 지연</h3>
-          <p>학기 초 실험복 지급이 늦어지는 반복적 문제</p>
+
+      <!-- ② 잠자는 옷 -->
+      <div class="pain-card reveal reveal-2" data-flip>
+        <div class="pain-card__inner">
+          <div class="pain-card__front">
+            <div>
+              <div class="pain-card__num">02 · SLEEPING</div>
+              <h3>잠자는 옷</h3>
+              <p>옷장에 쌓이지만 한 번도 입혀지지 않는 옷들</p>
+            </div>
+            <div>
+              <div class="pain-card__metric">8벌<small>/ 1인 · 매년</small></div>
+              <div class="pain-card__hint">데이터 보기</div>
+            </div>
+          </div>
+          <div class="pain-card__back">
+            <div>
+              <div class="pain-back__kicker">DATA</div>
+              <div class="pain-back__title">1인당 연간 옷 구매 — 그 중 한 번도 안 입는 옷</div>
+              <div class="big-stat">
+                <div class="big-stat__value">68<small>벌</small></div>
+                <div class="big-stat__sub">그 중 <strong>12%</strong> · <em>약 8벌</em>은<br>한 번도 입혀지지 않음</div>
+              </div>
+              <div class="dot-grid" id="painDotGrid"></div>
+            </div>
+            <div>
+              <div class="pain-back__source">출처: 정책주간지 공감 · MZ 의류 소비 통계</div>
+              <div class="pain-card__hint pain-card__hint--back">돌아가기</div>
+            </div>
+          </div>
         </div>
-        <div class="pain-card__metric">3~7일<small>매학기</small></div>
       </div>
-      <div class="pain-card reveal reveal-3">
-        <div>
-          <div class="pain-card__num">03 · WASTE</div>
-          <h3>자원 낭비</h3>
-          <p>한 번 입고 버려지는 의류, 캠퍼스 내 순환 구조 부재</p>
+
+      <!-- ③ 자원 낭비 -->
+      <div class="pain-card reveal reveal-3" data-flip>
+        <div class="pain-card__inner">
+          <div class="pain-card__front">
+            <div>
+              <div class="pain-card__num">03 · WASTE</div>
+              <h3>자원 낭비</h3>
+              <p>4년 새 폐기 의류가 +66% 급증, 캠퍼스 순환 거점은 0개</p>
+            </div>
+            <div>
+              <div class="pain-card__metric">+66%<small>2018→2022</small></div>
+              <div class="pain-card__hint">데이터 보기</div>
+            </div>
+          </div>
+          <div class="pain-card__back">
+            <div>
+              <div class="pain-back__kicker">DATA</div>
+              <div class="pain-back__title">한국 의류 폐기물 — 4년 새 +66%</div>
+              <div class="bar-chart">
+                <div class="bar-row">
+                  <span class="bar-label">2018</span>
+                  <div class="bar-track"><div class="bar bar--clay" style="--w:60%">66,000톤</div></div>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">2022</span>
+                  <div class="bar-track"><div class="bar bar--terra" style="--w:100%">110,000톤</div></div>
+                </div>
+              </div>
+              <div class="pain-back__callout">
+                <span class="pain-back__num">99%</span>
+                <span class="pain-back__num-label">매립·소각 등으로 사라짐<br>새 옷으로 재활용되는 비율 <strong>1% 미만</strong></span>
+              </div>
+            </div>
+            <div>
+              <div class="pain-back__source">출처: 환경부 폐기물 통계 · newstree.kr (2018-2022)</div>
+              <div class="pain-card__hint pain-card__hint--back">돌아가기</div>
+            </div>
+          </div>
         </div>
-        <div class="pain-card__metric">0<small>순환 거점</small></div>
       </div>
     </div>
   </section>

@@ -128,6 +128,24 @@
   // ---------- Hint auto-hide ----------
   setTimeout(() => elHint.classList.add('is-hidden'), 4500);
 
+  // ---------- Slide 2: pain cards flip on click ----------
+  document.querySelectorAll('[data-flip]').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      e.stopPropagation();
+      card.classList.toggle('is-flipped');
+    });
+  });
+
+  // Pain 2 dot grid — 68 dots, first 8 highlighted
+  const dotGrid = document.getElementById('painDotGrid');
+  if (dotGrid) {
+    let html = '';
+    for (let i = 0; i < 68; i++) {
+      html += `<span class="dot${i < 8 ? ' dot--never' : ''}"></span>`;
+    }
+    dotGrid.innerHTML = html;
+  }
+
   // ---------- Slide 8: demo iframe controls ----------
   const demoFrame = document.getElementById('demoFrame');
   document.querySelectorAll('.demo-btn').forEach((b) => {
