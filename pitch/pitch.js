@@ -48,6 +48,7 @@
       case 'Home': go(0); break;
       case 'End':  go(total - 1); break;
       case 'f': case 'F': toggleFullscreen(); break;
+      case 'p': case 'P': e.preventDefault(); triggerPrint(); break;
       case 'Escape': toggleOverview(true); break;
       default:
         if (e.key >= '1' && e.key <= '9') go(parseInt(e.key, 10) - 1);
@@ -60,6 +61,7 @@
   document.getElementById('prev').addEventListener('click', prev);
   document.getElementById('fs').addEventListener('click', toggleFullscreen);
   document.getElementById('overviewBtn').addEventListener('click', () => toggleOverview(true));
+  document.getElementById('printBtn').addEventListener('click', triggerPrint);
 
   // ---------- Touch ----------
   let touchStartX = 0, touchStartY = 0;
@@ -82,6 +84,20 @@
     } else {
       document.exitFullscreen?.();
     }
+  }
+
+  // ---------- Print / PDF export ----------
+  // Forces S4 brand-reveal & 순환소 chip to "chosen" state so the PDF
+  // shows the final naming result without needing live interaction.
+  function triggerPrint() {
+    document.querySelectorAll('#nameChips .name-chip').forEach((c) => {
+      if (c.dataset.name === '순환소') c.classList.add('is-chosen');
+      else c.classList.add('is-faded');
+    });
+    const br = document.getElementById('brandReveal');
+    if (br) br.classList.add('is-shown');
+    Sunhwanso.showToast('PDF: 인쇄 대화상자에서 "PDF로 저장" 선택 · 배경 그래픽 켜기');
+    setTimeout(() => window.print(), 300);
   }
 
   // ---------- Overview (ESC) ----------

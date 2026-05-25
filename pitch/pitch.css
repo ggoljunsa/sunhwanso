@@ -2015,3 +2015,154 @@ button { font-family: inherit; cursor: pointer; }
   .brand-card__loops            { margin: 0 auto; }
   .persona-quote                { padding: 22px 24px; }
 }
+
+/* =====================================================================
+   PRINT · 4:3 PDF EXPORT
+   Browser's "Print → Save as PDF" with these rules applied.
+   Each slide → 1 page at 10" × 7.5" (classic PPT 4:3).
+   Trigger: PDF button in controls, or keyboard P, or Ctrl+P.
+   Tip for users: in Print dialog enable "Background graphics".
+   ===================================================================== */
+@media print {
+  @page {
+    size: 10in 7.5in;
+    margin: 0;
+  }
+
+  html, body {
+    width: 10in !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Color preservation across all elements */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+
+  /* Hide live-only chrome */
+  .controls, .hint, .progress, .overview, .float-info,
+  .pain-card__hint, .pain-card__hint--back,
+  .name-meaning, .name-decide {
+    display: none !important;
+  }
+
+  /* Deck: vertical stack of slides, not absolute-positioned */
+  .deck {
+    position: static !important;
+    width: 10in !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Each slide = one page */
+  .slide {
+    position: relative !important;
+    inset: auto !important;
+    width: 10in !important;
+    height: 7.5in !important;
+    opacity: 1 !important;
+    transform: none !important;
+    page-break-after: always;
+    page-break-inside: avoid;
+    overflow: hidden !important;
+    padding: 0.45in 0.6in !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+  .slide:last-of-type { page-break-after: auto; }
+
+  /* Force all reveal elements visible (skip entrance animation) */
+  .reveal { opacity: 1 !important; transform: none !important; }
+
+  /* === Cover === */
+  .cover__svg circle { stroke-dashoffset: 0 !important; }
+
+  /* === S2 Pain cards — show FRONTS only === */
+  .pain-card {
+    perspective: none !important;
+    min-height: auto !important;
+    cursor: default !important;
+  }
+  .pain-card__inner {
+    transform-style: flat !important;
+    transform: none !important;
+    min-height: auto !important;
+    position: relative !important;
+  }
+  .pain-card__front {
+    position: relative !important;
+    inset: auto !important;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+  }
+  .pain-card__back { display: none !important; }
+
+  /* === S4 Naming — show "decided" state with brand card === */
+  .name-chip { pointer-events: none; }
+  .name-chip[data-name="순환소"] {
+    background: var(--terra) !important;
+    color: var(--paper) !important;
+    border-color: var(--terra-d) !important;
+    transform: scale(1.12) !important;
+  }
+  .name-chip:not([data-name="순환소"]) {
+    opacity: 0.3 !important;
+    transform: scale(0.85) !important;
+  }
+  .brand-reveal {
+    opacity: 1 !important;
+    max-height: none !important;
+    transform: none !important;
+    margin-top: 12px !important;
+    overflow: visible !important;
+  }
+  .brand-card__loops circle { animation: none !important; transform: none !important; }
+
+  /* === S5 Loop — show all rings/center === */
+  .loop__ring, .loop__ring--inner {
+    opacity: 0.55 !important;
+    transform: scale(1) !important;
+  }
+  .loop__ring--inner { opacity: 0.35 !important; }
+  .loop__center {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+  }
+  .loop__center-arrow { animation: none !important; }
+
+  /* === S8 CJM — full curve === */
+  .cjm-curve__path { stroke-dashoffset: 0 !important; }
+  .cjm-curve__area { opacity: 0.25 !important; }
+  .cjm-curve__dot { opacity: 1 !important; }
+
+  /* === S10 How-it-works — arrows drawn === */
+  .howto-arrow path { stroke-dashoffset: 0 !important; }
+
+  /* === S11 Live demo — iframe is same-origin; Chrome prints it === */
+  /* (no override needed; the iframe will print as-is) */
+
+  /* === S12 Iso floor — zones visible === */
+  .iso-zone {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .path-route, .iso-route {
+    stroke-dashoffset: 0 !important;
+    opacity: 0.75 !important;
+  }
+  .nfc-indicator { transform: none !important; }
+}
