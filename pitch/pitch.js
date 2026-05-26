@@ -191,12 +191,15 @@
   }
 
   // ---------- Slide 2: pain cards flip on click ----------
-  document.querySelectorAll('[data-flip]').forEach((card) => {
+  const flipCards = document.querySelectorAll('[data-flip]');
+  flipCards.forEach((card) => {
     card.addEventListener('click', (e) => {
       e.stopPropagation();
       card.classList.toggle('is-flipped');
     });
   });
+  // Auto-flip middle pain card (잠자는 옷) for PDF screenshot
+  if (expandMode && flipCards[1]) flipCards[1].classList.add('is-flipped');
 
   // Pain 2 dot grid — 68 dots, first 8 highlighted
   const dotGrid = document.getElementById('painDotGrid');

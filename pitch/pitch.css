@@ -2111,6 +2111,17 @@ button { font-family: inherit; cursor: pointer; }
   }
   .pain-card__back { display: none !important; }
 
+  /* If card is pre-flipped (?expand=1), swap to back */
+  .pain-card.is-flipped .pain-card__front { display: none !important; }
+  .pain-card.is-flipped .pain-card__back {
+    display: flex !important;
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+  }
+
   /* === S4 Naming — show "decided" state with brand card === */
   .name-chip { pointer-events: none; }
   .name-chip[data-name="순환소"] {
