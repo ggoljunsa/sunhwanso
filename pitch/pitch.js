@@ -151,10 +151,14 @@
   if (pdfMode) {
     const style = document.createElement('style');
     style.textContent = `
-      .slide, .slide.is-active {
+      .slide.is-active {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
+      }
+      .slide:not(.is-active) {
+        opacity: 0 !important;
+        visibility: hidden !important;
       }
       .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
       *, *::before, *::after {
