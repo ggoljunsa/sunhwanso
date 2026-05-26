@@ -1721,11 +1721,15 @@ button { font-family: inherit; cursor: pointer; }
   margin-top: 2px;
 }
 
-/* ========== Slide 13/14 · Space photo (full-bleed) ========== */
+/* ========== Full-bleed photo slides (cover, features mockup, space photos) ========== */
+.slide--cover-photo,
+.slide--feats-photo,
 .slide--space-photo {
   padding: 0 !important;
   background: var(--paper);
 }
+.cover-photo__img,
+.feats-photo__img,
 .space-photo__img {
   position: absolute;
   inset: 0;
