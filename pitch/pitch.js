@@ -96,7 +96,6 @@
     });
     const br = document.getElementById('brandReveal');
     if (br) br.classList.add('is-shown');
-    Sunhwanso.showToast('PDF: 인쇄 대화상자에서 "PDF로 저장" 선택 · 배경 그래픽 켜기');
     setTimeout(() => window.print(), 300);
   }
 
@@ -145,7 +144,7 @@
   setTimeout(() => elHint.classList.add('is-hidden'), 4500);
 
   // ---------- ?expand=1 — auto-show interactive final states for screenshot/PDF ----------
-  const expandMode = !!Sunhwanso.qs('expand');
+  const expandMode = !!new URLSearchParams(window.location.search).get('expand');
 
   // ---------- Slide 4: naming flow ----------
   const nameDescriptions = {
