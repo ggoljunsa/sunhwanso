@@ -13,9 +13,23 @@
 
 <main class="deck" id="deck">
 
-  <!-- ============ S1 · COVER (teammate's design) ============ -->
-  <section class="slide slide--cover-photo is-active" data-slide="1" data-title="표지">
-    <img class="cover-photo__img" src="img/cover.png" alt="순환소 Sunhwanso · DGIST 학내 의류 대여 + NFC 스토리 플랫폼 · 박진홍, 장민준, 조형윤, 한정민"/>
+  <!-- ============ S1 · COVER (animated, teammate's layout) ============ -->
+  <section class="slide slide--cover is-active" data-slide="1" data-title="표지">
+    <div class="cover__loops" aria-hidden="true">
+      <svg viewBox="0 0 400 400" class="cover__svg" preserveAspectRatio="xMidYMid meet">
+        <circle cx="200" cy="200" r="80"/>
+        <circle cx="200" cy="200" r="140"/>
+        <circle cx="200" cy="200" r="200"/>
+      </svg>
+    </div>
+    <div class="cover__text">
+      <div class="cover__kicker reveal reveal-1">6조 · UI/UX 디자인 · 2026-1 후반기 팀프로젝트</div>
+      <h1 class="cover__title reveal reveal-2">
+        <span class="accent">순환소</span><span class="latin">Sunhwanso</span>
+      </h1>
+      <p class="cover__sub reveal reveal-3">DGIST 학내 의류 대여 + NFC 스토리 플랫폼</p>
+      <p class="cover__team reveal reveal-4">박진홍 · <strong>장민준</strong> · 조형윤 · 한정민</p>
+    </div>
   </section>
 
   <!-- ============ S2 · PROBLEM ============ -->

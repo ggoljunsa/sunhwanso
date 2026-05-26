@@ -104,7 +104,6 @@ button { font-family: inherit; cursor: pointer; }
     radial-gradient(circle at 20% 80%, rgba(217,156,43,0.08) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(194,90,53,0.10) 0%, transparent 50%),
     var(--paper);
-  position: relative;
 }
 .cover__loops {
   position: absolute;
@@ -113,18 +112,18 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  opacity: 0.45;
+  opacity: 0.55;
 }
 .cover__svg {
-  width: min(80vmin, 700px);
-  height: min(80vmin, 700px);
+  width: min(96vmin, 1040px);
+  height: min(96vmin, 1040px);
 }
 .cover__svg circle {
   fill: none;
   stroke: var(--terra);
-  stroke-width: 1;
-  stroke-dasharray: 1200;
-  stroke-dashoffset: 1200;
+  stroke-width: 0.7;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
   transform-origin: center;
 }
 .slide--cover.is-active .cover__svg circle:nth-child(1) {
