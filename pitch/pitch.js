@@ -146,6 +146,46 @@
   // ---------- ?expand=1 — auto-show interactive final states for screenshot/PDF ----------
   const expandMode = !!new URLSearchParams(window.location.search).get('expand');
 
+  // ---------- ?pdf=1 — full PDF rendering mode (all slides visible, no animations, no UI chrome) ----------
+  const pdfMode = !!new URLSearchParams(window.location.search).get('pdf');
+  if (pdfMode) {
+    const style = document.createElement('style');
+    style.textContent = `
+      .slide, .slide.is-active {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      *, *::before, *::after {
+        animation-duration: 0.001s !important;
+        animation-delay: -0.001s !important;
+        animation-iteration-count: 1 !important;
+        animation-fill-mode: forwards !important;
+        transition-duration: 0.001s !important;
+        transition-delay: 0s !important;
+      }
+      .controls, .hint, .progress, .float-info { display: none !important; }
+      /* Force final states of dash-offset animations */
+      .cover__svg circle { stroke-dashoffset: 0 !important; }
+      .cjm-curve__path { stroke-dashoffset: 0 !important; }
+      .cjm-curve__area { opacity: 0.25 !important; }
+      .cjm-curve__dot { opacity: 1 !important; }
+      .loop__ring, .loop__ring--inner { transform: scale(1) !important; }
+      .loop__ring { opacity: 0.55 !important; }
+      .loop__ring--inner { opacity: 0.35 !important; }
+      .loop__center {
+        opacity: 1 !important;
+        transform: translate(-50%, -50%) scale(1) !important;
+      }
+      .path-route, .iso-route { stroke-dashoffset: 0 !important; opacity: 0.75 !important; }
+      .iso-zone { opacity: 1 !important; transform: none !important; }
+      .howto-arrow path { stroke-dashoffset: 0 !important; }
+      .brand-reveal { opacity: 1 !important; max-height: none !important; transform: none !important; }
+    `;
+    document.head.appendChild(style);
+  }
+
   // ---------- Slide 4: naming flow ----------
   const nameDescriptions = {
     '순환소': '순환(循環) + 소(所). 한 거점에서 자원이 한 바퀴 돈다. 컨셉도 공간성도 다 담김.',
